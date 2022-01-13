@@ -11,3 +11,204 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.header {
+  background-color: aliceblue;
+  display: flex;
+  padding: 20px;
+}
+
+.header--title {
+  display: flex;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: 50px;
+}
+
+.header--sig {
+  margin-right: 50px;
+}
+
+/* the meme part  */
+
+.form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 17px;
+  margin-bottom: 17px;
+  margin: 50px;
+}
+
+.form--input {
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 1px #92A9BD;
+  text-indent: 5px;
+}
+
+.form--button {
+  grid-column: 1/ -1;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #FFB9B9 9.25%, #FF6868 100%), #FD9898;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+.memeContainer {
+  position: relative;
+}
+
+.memeimg {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.imgUpdate {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.memetext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  margin: 5px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+      2px 2px 0 #000,
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      0 2px 0 #000,
+      2px 0 0 #000,
+      0 -2px 0 #000,
+      -2px 0 0 #000,
+      2px 2px 5px #000;
+}
+
+.top {
+  top: 10%;
+}
+.bot {
+  top: 90%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.mintButton {
+  width: 800px;
+  height: 300px;
+  font-size: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 50px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #FFB9B9 9.25%, #FF6868 100%), #FD9898;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#mint-button {
+  margin-bottom: 90px;
+}
+
+
+.galleryContainer {
+  margin: 0px 5px 5px 0;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    ". . .";
+  
+}
+
+.container-inner {
+  margin: 10px;
+  padding: 3%;
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  background-color: #D9D7F1;
+  border-radius: 5px;
+}
+
+
+.updateGalleryFont {
+  position: absolute;
+  font-size: 1.5rem;
+}
+
+.topU {
+  top: 15%;
+}
+.botU {
+  top: 80%;
+}
+
+.line {
+  width: 112px;
+  height: 47px;
+  border-bottom: 2px solid #FF6363;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 110px;
+}
+
+.centerConnect {
+  margin: auto;
+  width: auto;
+  text-align: center;
+  margin-top: 100px;
+  width: 50%;
+  padding: 10px;
+} 
+
+.connectDesc {
+  text-align: center;
+}
+
+.connectText {
+  text-align: center;
+}
+
+.connectButton {
+  width: 450px;
+  padding: 50px;
+  font-size: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #FFB9B9 9.25%, #FF6868 100%), #FD9898;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: white;
+  cursor: pointer;
+}

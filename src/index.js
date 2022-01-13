@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {ThirdwebWeb3Provider} from '@3rdweb/hooks'
+
+import { Buffer } from 'buffer'
+window.Buffer = Buffer
+// Specify rinkeby 
+const supportedChainIds = [4];
+
+const connectors = {
+  injected: {}
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <ThirdwebWeb3Provider
+      connectors = {connectors}
+      supportedChainIds = {supportedChainIds}
+    >
+      
+        <App />
+      
+    </ThirdwebWeb3Provider>
+  </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 
