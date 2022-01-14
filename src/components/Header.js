@@ -9,7 +9,7 @@ function Header() {
             </h2>
 
             <h3 className="header--sig">
-                by qije
+                by jerryqi.eth
             </h3>
         </header>
     )

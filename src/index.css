@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.gray {
+  color: #bababa;
+}
+
 
 .header {
   background-color: aliceblue;

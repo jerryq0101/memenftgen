@@ -20,9 +20,7 @@ ReactDOM.render(
       connectors = {connectors}
       supportedChainIds = {supportedChainIds}
     >
-      
         <App />
-      
     </ThirdwebWeb3Provider>
   </React.StrictMode>
   ,

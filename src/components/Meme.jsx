@@ -5,6 +5,7 @@ import 'babel-polyfill'
 
 
 function Meme(){
+
     // Make the meme state
     const [meme, setMeme] = useState({
         topText: "",
@@ -169,7 +170,7 @@ function Meme(){
                 setIsMinting(false)
 
                 console.log("ended 20 seconds")
-            }, 20000) 
+            }, 20000)
         }
         
         function generateJSONFile(){
