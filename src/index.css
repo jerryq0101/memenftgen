@@ -216,3 +216,7 @@ code {
   color: white;
   cursor: pointer;
 }
+
+.linespace {
+  margin: 30px;
+}

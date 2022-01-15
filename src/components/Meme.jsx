@@ -64,17 +64,23 @@ function Meme(){
         // Get Contract setup
         useEffect(() => {
         
+
              // Get NFTs
-             async function getthefrickingnfts(contractWithSigner, daaccount){      
+             async function getthefrickingnfts(contractWithSigner, daaccount){    
+                 
+                setFinishedLoading(false)
                 console.log("Inside nft get function", contractWithSigner)    
                 let nftarr = []
+                
                 console.log("Account in state:", daaccount)
+                
                 //const numNFTs = await contractWithSigner.balanceOf(accountuse);
                 
                 for (let i = 1; i<100; i++){
                     try {
                         const owner = await contractWithSigner.ownerOf(i) // Ownerof takes tokenid
-                        if (daaccount === owner) {
+                        console.log("owner:", owner)
+                        if ((daaccount+"") === (owner+"")) {
                             const memeinstance = await contractWithSigner.tokenURI(i);
                             nftarr.push(JSON.parse(memeinstance))
                         }
@@ -83,6 +89,7 @@ function Meme(){
                     }
                     
                 }
+                setFinishedLoading(true)
                 console.log("nft array for this account:", nftarr)
                 setNFTObjects(nftarr)
             }
@@ -98,11 +105,9 @@ function Meme(){
                 const nftcontract = new ethers.Contract(contractAddress, nftAbi.abi, provider)
                 const connection = nftcontract.connect(signer)
 
+                const accounts = await window.ethereum.request({method: "eth_requestAccounts"});
                 const accountinuse = await signer.getAddress();
                 setAccountUse(accountinuse)
- 
-                const accounts = await provider.send("eth_requestAccounts", []);
-                setAccounts(accounts);
 
                 getthefrickingnfts(connection, accountinuse)
             }
@@ -116,6 +121,7 @@ function Meme(){
             function setfinished(){
                 setFinishedLoading(true)
             }
+
             function printNFTs(){
                 const nftjsx = []
 
@@ -161,16 +167,16 @@ function Meme(){
             // connect to the signer
             const nftwithsigner = nftcontract.connect(web3provider.getSigner())
             // Execute tx using signer connection
-            const tx = await nftwithsigner.mintNFT(accounts[0], metadata)
+            const tx = await nftwithsigner.mintNFT(accountuse, metadata)
             console.log(tx)
             setTxHash(tx.hash)
 
             // setting ownership of the people
             const balance = await nftwithsigner.balanceOf(accountuse)
+
             setTimeout(()=>{
                 setNFTAmounts(balance)
                 setIsMinting(false)
-
                 console.log("ended 20 seconds")
             }, 20000)
         }
@@ -249,9 +255,14 @@ function Meme(){
             </div>
             }
             
-            {finishedLoading &&
+            {finishedLoading ?
                 <div className="galleryContainer">
                         {nftreact.map((nft) => nft)}
+                </div> 
+                :
+                <div className="linespace">
+                    Loading gallery...
+                    
                 </div>
             }
 
