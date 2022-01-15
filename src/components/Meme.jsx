@@ -83,7 +83,7 @@ function Meme(){
                     }
                     
                 }
-                console.log("The fricking nft array for this account:", nftarr)
+                console.log("nft array for this account:", nftarr)
                 setNFTObjects(nftarr)
             }
 
@@ -144,6 +144,7 @@ function Meme(){
 
         
         
+        const [txhash, setTxHash] = useState("")
 
         // Handle the call
         async function handleNFT(metadata){
@@ -162,7 +163,8 @@ function Meme(){
             // Execute tx using signer connection
             const tx = await nftwithsigner.mintNFT(accounts[0], metadata)
             console.log(tx)
-            
+            setTxHash(tx.hash)
+
             // setting ownership of the people
             const balance = await nftwithsigner.balanceOf(accountuse)
             setTimeout(()=>{
@@ -203,19 +205,19 @@ function Meme(){
                 <input
                     name="topText"
                     onChange={handleChange}
-                    placeholder="what the"
+                    placeholder="meme top text"
                     type="text"
                     className="form--input"
                 /> 
                 <input
                     name="bottomText"         
                     onChange={handleChange}
-                    placeholder="f***"
+                    placeholder="meme bottom text"
                     type="text"
                     className="form--input"
                 />
                 <button className="form--button" onClick={getNewImage}>
-                    Get a new 🏙 meme image lolololol
+                    Get a new 🏙 meme image
                 </button>
             </div>
             
@@ -232,11 +234,12 @@ function Meme(){
                   onClick={generateJSONFile}
                   disabled = {isMinting}
                 >
-                    {!isMinting ? "mint ur own memeNFT lol" : "Wait up, minting right now"} 
-
+                    {!isMinting ? "mint ur own memeNFT!" : "Wait up, minting right now"} 
                 </button>
+                <br></br>
+                {isMinting && <a className="gray" target="_blank" href={`https://ropsten.etherscan.io/tx/${txhash}`}>Transaction status</a>}
             </div> 
-
+            
             <div className="line"></div>
 
             {finishedLoading && <div className="">
@@ -245,7 +248,7 @@ function Meme(){
                 </h2>
             </div>
             }
-
+            
             {finishedLoading &&
                 <div className="galleryContainer">
                         {nftreact.map((nft) => nft)}

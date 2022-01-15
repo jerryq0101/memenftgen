@@ -1,52 +1,28 @@
 import logo from './logo.svg';
+import React, {useState} from "react"
 import './App.css';
 import Header from "./components/Header"
 import Meme from "./components/Meme"
-import { ethers } from 'ethers'
-
 
 function App() {
 
-  async function idcheck() {
-    const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-    const { chainId } = await provider.getNetwork()
-    console.log("chainid:", chainId);
+  const [buttonClicked, setButtonClicked] = useState(false)
 
-    function handleCheck(){
-      if (window.ethereum){
-        window.location.reload();
-      }
-    }
-
-    if (chainId !== 3){
-      return (
-        <div>
-            <div className="header">
-              <h2 className="header--title">😂 meme generator</h2>
-            </div>
-            <div className="centerConnect">
-                <h2 className="connectText">
-                  To use this stupid app, please connect to ropsten
-                </h2>
-                <p className="connectDesc">
-                  I am begging you bruv {":,<"}
-                </p>
-                <button className="connectButton" onClick={handleCheck}>
-                  Connect to the application
-                </button>
-                <p className="gray">get metamask <a className="gray" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">here</a></p>
-            </div>
+  if (!buttonClicked){
+    return (
+      <div>
+            <p>Hello, to enter the meme generator:
+                <ol>
+                    <li>Metamask</li>
+                    <li>Connect to Ropsten</li>
+                </ol>
+            </p>
+            <button onClick={()=>{setButtonClicked(true)}}>Enter app</button>
         </div>
-      )
-    }
+    )
   }
 
-  idcheck()
-
-  
-
   if (!window.ethereum){
-
     function handleCheck(){
       if (window.ethereum){
         window.location.reload();
