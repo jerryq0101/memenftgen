@@ -105,7 +105,6 @@ function Meme(){
                 const nftcontract = new ethers.Contract(contractAddress, nftAbi.abi, provider)
                 const connection = nftcontract.connect(signer)
 
-                const accounts = await window.ethereum.request({method: "eth_requestAccounts"});
                 const accountinuse = await signer.getAddress();
                 setAccountUse(accountinuse)
 
