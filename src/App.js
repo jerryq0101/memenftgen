@@ -36,10 +36,10 @@ function App() {
             </div>
             <div className="centerConnect">
                 <h2 className="connectText">
-                  To use this stupid app, please connect to metamask.
+                  To use this app, please connect to metamask.
                 </h2>
                 <p className="connectDesc">
-                  I am begging you bruv {":,<"}
+                  I am begging you
                 </p>
                 <button className="connectButton" onClick={handleCheck}>
                   Connect to the application
