@@ -47,18 +47,17 @@ function Meme(){
     }
 
     // WEB3 SHIT
-        const nftAbi = require("../metadata/MemeNFT.json")
-        const contractAddress = "0x7880154d11549De8d951F7ae6717c6b1eBe59505"
-        const [web3provider, setWeb3Provider] = useState({})
-        const [signer, setSigner] = useState({})
-        const [accounts, setAccounts] = useState([]);
-        const [accountuse, setAccountUse] = useState("");
-        const [nftamounts, setNFTAmounts] = useState("");
-        const [nftsObjects, setNFTObjects] = useState([]); 
-        const [nftreact, setNFTReact] = useState([])
-        const [finishedLoading, setFinishedLoading] = useState(false)
-        const [isMinting, setIsMinting] = useState(false)
-        const [sus, setSus] = useState(false);
+    const nftAbi = require("../metadata/MemeNFT.json")
+    const contractAddress = "0x7880154d11549De8d951F7ae6717c6b1eBe59505"
+    const [web3provider, setWeb3Provider] = useState({})
+    const [signer, setSigner] = useState({})
+    const [accounts, setAccounts] = useState([]);
+    const [accountuse, setAccountUse] = useState("");
+    const [nftamounts, setNFTAmounts] = useState("");
+    const [nftsObjects, setNFTObjects] = useState([]); 
+    const [nftreact, setNFTReact] = useState([])
+    const [finishedLoading, setFinishedLoading] = useState(false)
+    const [isMinting, setIsMinting] = useState(false)
 
 
         // Get Contract setup
